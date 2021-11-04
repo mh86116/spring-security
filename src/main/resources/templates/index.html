@@ -1,0 +1,41 @@
+<html lang="ko" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>SignUp</title>
+    <style>
+        .title {
+            color: orangered;
+            text-shadow: 5px 5px orange;
+            font-size: 80px;
+            font-weight: bold;
+        }
+
+        a {
+            margin: 20px;
+            text-decoration: none;
+        }
+
+        .signup {
+            color: rebeccapurple;
+            font-weight: bold;
+            font-size: 30px;
+        }
+
+        .logout {
+            color: red;
+            font-size: 30px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .hi{font-size: 50px; font-weight: bold; color: green; text-shadow: 0 1px 10px yellow;}
+    </style>
+</head>
+<body style="text-align: center;">
+<h1 class="title">Home</h1>
+<hr>
+<a sec:authorize="isAnonymous()" th:href="@{/member/signup}" class="signup">회원가입</a>
+<a sec:authorize="isAnonymous()" th:href="@{/member/login}" class="signup">로그인</a>
+<h3 sec:authorize="isAuthenticated()" class="hi">반갑습니다. <span sec:authentication="name" class="name"></span>님!</h3>
+<a sec:authorize="isAuthenticated()" th:href="@{/member/logout}" class="logout">로그아웃</a>
+</body>
+</html>
